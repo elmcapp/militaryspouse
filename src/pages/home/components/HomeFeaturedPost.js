@@ -7,8 +7,11 @@ import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import { useNavigate } from "react-router-dom";
 
 const HomeFeaturedPost = () => {
+  const navigate = useNavigate();
+
   return (
     <Paper
       sx={{
@@ -65,6 +68,7 @@ const HomeFeaturedPost = () => {
               variant="contained"
               endIcon={<SendIcon />}
               sx={{ padding: 2 }}
+              onClick={() => navigate("start")}
             >
               Start Here
             </Button>
