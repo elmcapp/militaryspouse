@@ -65,7 +65,7 @@ export default function TopHeaderBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="https://elmcapp.github.io/militaryspouse/"
             sx={{
               flexGrow: 1,
               display: { xs: "none", sm: "block" },
