@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   FormControl,
   MenuItem,
@@ -39,7 +40,7 @@ export const Step3 = (props) => {
   };
 
   return (
-    <div>
+    <Box style={{ width: "100%" }}>
       <CustomAlert
         open={alertIsOpen}
         onClose={setAlertIsOpen}
@@ -104,6 +105,6 @@ export const Step3 = (props) => {
           Next
         </Button>
       </FormControl>
-    </div>
+    </Box>
   );
 };
