@@ -14,6 +14,7 @@ export const Step4 = (props) => {
   const [selection, setSelection] = React.useState("");
 
   const handleSubmit = () => {
+    props.currentState(selection);
     props.stepNumberCompleted(4);
   };
 
@@ -22,22 +23,60 @@ export const Step4 = (props) => {
   };
 
   const StatesList = [
+    "Alabama",
     "Alaska",
+    "Arizona",
+    "Arkansas",
     "California",
+    "Colorado",
     "Connecticut",
-    "District of Columbia",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Guam",
     "Hawaii",
+    "Idaho",
     "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
     "Massachusetts",
     "Michigan",
     "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
     "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
     "New York",
-    "Ohio ",
-    "Puerto Rico",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
     "Oregon",
-    "Rhode Island ",
+    "Palau",
+    "Pennsylvania",
+    "Puerto Rico",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virgin Island",
+    "Virginia",
     "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming",
   ];
 
   return (
