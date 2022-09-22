@@ -13,6 +13,9 @@ import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import ProgressStepper from "./components/ProgressStepper";
+import { Step1 } from "./steps/Step1";
+import { Step2 } from "./steps/Step2";
 
 function Copyright(props) {
   return (
@@ -35,22 +38,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function WizardPage() {
-  const [q1, setQ1] = React.useState("");
-  const [q2, setQ2] = React.useState("");
-  const [q3, setQ3] = React.useState("");
-  const [q4, setQ4] = React.useState("");
+  const [stepNumber, setStepNumber] = React.useState(0);
 
-  //   const handleChange = (event) => {
-  //     setAge(event.target.value);
-  //   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const handleStepNumberCompleted = (num) => {
+    setStepNumber(num);
   };
 
   return (
@@ -97,92 +88,25 @@ export default function WizardPage() {
             alignItems: "center",
           }}
         >
-          <FormControl sx={{ m: 1, width: "100%", mt: 3 }}>
-            <Stack spacing={2}>
-              {/* Question 1 */}
-              <Typography color="inherit" sx={{ fontStyle: "italic" }}>
-                Are you currently a licensed RN or LPN in any US jurisdiction?
-              </Typography>
-              <Select
-                displayEmpty
-                value={q1}
-                onChange={(event) => setQ1(event.target.value)}
-                input={<OutlinedInput />}
-                inputProps={{ "aria-label": "Without label" }}
-              >
-                <MenuItem disabled value="">
-                  <em>Placeholder</em>
-                </MenuItem>
-                <MenuItem value={"yes"}>Yes</MenuItem>
-                <MenuItem value={"no"}>No</MenuItem>
-              </Select>
+          <ProgressStepper step={stepNumber} />
+          {/* Questions start here */}
+          {stepNumber === 0 && (
+            <Step1
+              stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
+            />
+          )}
 
-              {/* Question 2 */}
-              <Typography sx={{ fontStyle: "italic" }}>
-                Are you moving to another US jurisdiction, such as to another US
-                state or territory?
-              </Typography>
-              <Select
-                displayEmpty
-                value={q2}
-                onChange={(event) => setQ2(event.target.value)}
-                input={<OutlinedInput />}
-                inputProps={{ "aria-label": "Without label" }}
-              >
-                <MenuItem disabled value="">
-                  <em>Placeholder</em>
-                </MenuItem>
-                <MenuItem value={"yes"}>Yes</MenuItem>
-                <MenuItem value={"no"}>No</MenuItem>
-              </Select>
+          {stepNumber === 1 && (
+            <Step2
+              stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
+            />
+          )}
 
-              {/* Question 3 */}
-              <Typography sx={{ fontStyle: "italic" }}>
-                In what state are you currently licensed?
-              </Typography>
-              <Select
-                displayEmpty
-                value={q3}
-                onChange={(event) => setQ3(event.target.value)}
-                input={<OutlinedInput />}
-                inputProps={{ "aria-label": "Without label" }}
-              >
-                <MenuItem disabled value="">
-                  <em>Placeholder</em>
-                </MenuItem>
-                <MenuItem value={10}>North Carolina</MenuItem>
-                <MenuItem value={20}>Florida</MenuItem>
-                <MenuItem value={30}>Georgia</MenuItem>
-              </Select>
-
-              {/* Question 4 */}
-              <Typography sx={{ fontStyle: "italic" }}>
-                What state are you moving to?
-              </Typography>
-              <Select
-                displayEmpty
-                value={q4}
-                onChange={(event) => setQ4(event.target.value)}
-                input={<OutlinedInput />}
-                inputProps={{ "aria-label": "Without label" }}
-              >
-                <MenuItem disabled value="">
-                  <em>Placeholder</em>
-                </MenuItem>
-                <MenuItem value={10}>North Carolina</MenuItem>
-                <MenuItem value={20}>Florida</MenuItem>
-                <MenuItem value={30}>Georgia</MenuItem>
-              </Select>
-            </Stack>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Next
-            </Button>
-          </FormControl>
+          {stepNumber === 2 && (
+            <Step2
+              stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
+            />
+          )}
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
