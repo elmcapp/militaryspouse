@@ -46,6 +46,7 @@ export default function WizardPage() {
 
   const [stepNumber, setStepNumber] = React.useState(0);
   const [yourCurrentState, setYourCurrentState] = React.useState(null);
+  const [noDocuments, setNoDocument] = React.useState(false);
 
   const handleStepNumberCompleted = (num) => {
     setStepNumber(num);
@@ -63,7 +64,7 @@ export default function WizardPage() {
       navigate("/california");
       
     } else {
-
+      setNoDocument(true)
     }
   };
 
@@ -143,6 +144,13 @@ export default function WizardPage() {
               stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
               movingToState={(state) => getDocuments(state)}
             />
+          )}
+
+          {noDocuments && (
+            <Typography mt={5}>
+              No documents have been uploaded for your selections. Please use
+              the contact us link to request documents for your state
+            </Typography>
           )}
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />

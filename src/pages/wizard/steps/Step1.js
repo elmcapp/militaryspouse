@@ -62,6 +62,7 @@ export const Step1 = (props) => {
           fullWidth
           variant="contained"
           sx={{ mt: 3, mb: 2 }}
+          disabled={selection?.length > 0 ? false : true}
           onClick={() => handleSubmit()}
         >
           Next

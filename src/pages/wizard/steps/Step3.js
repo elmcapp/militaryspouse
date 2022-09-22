@@ -39,6 +39,10 @@ export const Step3 = (props) => {
     }
   };
 
+  const handleBack = () => {
+    props.stepNumberCompleted(1);
+  };
+
   return (
     <Box style={{ width: "100%" }}>
       <CustomAlert
@@ -95,15 +99,38 @@ export const Step3 = (props) => {
             </div>
           )}
         </Stack>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-          onClick={() => handleSubmit()}
-        >
-          Next
-        </Button>
+
+        <Stack direction="row" spacing={2} justifyContent="flex-end" mt={2}>
+          <Button
+            type="submit"
+            // fullWidth
+            variant="contained"
+            // sx={{ mt: 3, mb: 2 }}
+            color="warning"
+            sx={{ width: "30%" }}
+            // disabled={selection?.length > 0 ? false : true}
+            onClick={() => handleBack()}
+          >
+            Back
+          </Button>
+          <Button
+            type="submit"
+            // fullWidth
+            variant="contained"
+            // sx={{ mt: 3, mb: 2 }}
+            sx={{ width: "30%" }}
+            disabled={
+              (selection?.length > 0 && selectionExtend?.length > 0) ||
+              selection === "no" ||
+              selection === "unsure"
+                ? false
+                : true
+            }
+            onClick={() => handleSubmit()}
+          >
+            Next
+          </Button>
+        </Stack>
       </FormControl>
     </Box>
   );

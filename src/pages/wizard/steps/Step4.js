@@ -19,6 +19,10 @@ export const Step4 = (props) => {
     props.stepNumberCompleted(4);
   };
 
+  const handleBack = () => {
+    props.stepNumberCompleted(2);
+  };
+
   const handleOnChange = (event) => {
     setSelection(event.target.value);
   };
@@ -116,15 +120,31 @@ export const Step4 = (props) => {
             })}
           </Select>
         </Stack>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-          onClick={() => handleSubmit()}
-        >
-          Next
-        </Button>
+        <Stack direction="row" spacing={2} justifyContent="flex-end" mt={2}>
+          <Button
+            type="submit"
+            // fullWidth
+            variant="contained"
+            // sx={{ mt: 3, mb: 2 }}
+            color="warning"
+            sx={{ width: "30%" }}
+            // disabled={selection?.length > 0 ? false : true}
+            onClick={() => handleBack()}
+          >
+            Back
+          </Button>
+          <Button
+            type="submit"
+            // fullWidth
+            variant="contained"
+            // sx={{ mt: 3, mb: 2 }}
+            sx={{ width: "30%" }}
+            disabled={selection?.length > 0 ? false : true}
+            onClick={() => handleSubmit()}
+          >
+            Next
+          </Button>
+        </Stack>
       </FormControl>
     </Box>
   );
