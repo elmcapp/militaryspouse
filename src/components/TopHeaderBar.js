@@ -9,6 +9,7 @@ import InputBase from "@mui/material/InputBase";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button, Divider, Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -55,6 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function TopHeaderBar() {
+  const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
@@ -62,12 +64,14 @@ export default function TopHeaderBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            component="a"
+            href="/"
             sx={{
               flexGrow: 1,
               display: { xs: "none", sm: "block" },
               color: "black",
               fontWeight: "Bold",
+              textDecoration: "none",
             }}
           >
             Military Spouse Services
