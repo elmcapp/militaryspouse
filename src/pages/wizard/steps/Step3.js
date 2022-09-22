@@ -8,11 +8,12 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import DialogMessage from "../components/CustomAlert";
-
+import { CustomAlert } from "../components/CustomAlert";
+// props.stepNumberCompleted(3);
 export const Step3 = (props) => {
   const [selection, setSelection] = React.useState("");
   const [selectionExtend, setSelectionExtend] = React.useState("");
+  const [alertIsOpen, setAlertIsOpen] = React.useState(false);
 
   const handleOnChange = (event) => {
     setSelection(event.target.value);
@@ -23,16 +24,29 @@ export const Step3 = (props) => {
   };
 
   const handleSubmit = () => {
-    if (selection === "no") {
-      alert("put error message here");
+    //prettier-ignore
+    if (selection === "yes" && selectionExtend === 'no' || selectionExtend==='unsure'){ 
+        // Go to next step
+        props.stepNumberCompleted(3);
+    } 
+    else if (selection === "yes" && selectionExtend === 'yes'){ 
+        // show alert message
+        setAlertIsOpen(true);
     } else {
-      props.stepNumberCompleted(3);
+        // go to next step
+        props.stepNumberCompleted(3);
     }
   };
 
   return (
     <div>
-      <DialogMessage dialogVisible />
+      <CustomAlert
+        open={alertIsOpen}
+        onClose={setAlertIsOpen}
+        msg={
+          "Licensed RNs and LPNs employed by the Federal Government may be able to continue working without changing their license."
+        }
+      />
       <FormControl sx={{ m: 1, width: "100%", mt: 3 }}>
         <Stack spacing={2}>
           {/* Question 3 */}
@@ -52,7 +66,7 @@ export const Step3 = (props) => {
             </MenuItem>
             <MenuItem value={"yes"}>Yes</MenuItem>
             <MenuItem value={"no"}>No</MenuItem>
-            <MenuItem value={"no"}>Unsure</MenuItem>
+            <MenuItem value={"unsure"}>Unsure</MenuItem>
           </Select>
 
           {/* Extended Question 1 of 1 */}
@@ -63,8 +77,9 @@ export const Step3 = (props) => {
                 Will you be a federal government employee?
               </Typography>
               <Select
+                fullWidth
                 displayEmpty
-                value={selection}
+                value={selectionExtend}
                 onChange={handleOnChangeExtended}
                 input={<OutlinedInput />}
                 inputProps={{ "aria-label": "Without label" }}
@@ -74,7 +89,7 @@ export const Step3 = (props) => {
                 </MenuItem>
                 <MenuItem value={"yes"}>Yes</MenuItem>
                 <MenuItem value={"no"}>No</MenuItem>
-                <MenuItem value={"no"}>Unsure</MenuItem>
+                <MenuItem value={"unsure"}>Unsure</MenuItem>
               </Select>
             </div>
           )}

@@ -16,6 +16,9 @@ import * as React from "react";
 import ProgressStepper from "./components/ProgressStepper";
 import { Step1 } from "./steps/Step1";
 import { Step2 } from "./steps/Step2";
+import { Step3 } from "./steps/Step3";
+import { Step4 } from "./steps/Step4";
+import { Step5 } from "./steps/Step5";
 
 function Copyright(props) {
   return (
@@ -103,8 +106,22 @@ export default function WizardPage() {
           )}
 
           {stepNumber === 2 && (
-            <Step2
+            <Step3
               stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
+            />
+          )}
+
+          {stepNumber === 3 && (
+            <Step4
+              stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
+              currentState={() => console.log("")}
+            />
+          )}
+
+          {stepNumber === 4 && (
+            <Step5
+              stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
+              movingToState={() => console.log("")}
             />
           )}
         </Box>
