@@ -13,6 +13,7 @@ import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import ProgressStepper from "./components/ProgressStepper";
 import { Step1 } from "./steps/Step1";
 import { Step2 } from "./steps/Step2";
@@ -41,10 +42,29 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function WizardPage() {
+  const navigate = useNavigate();
+
   const [stepNumber, setStepNumber] = React.useState(0);
+  const [yourCurrentState, setYourCurrentState] = React.useState(null);
 
   const handleStepNumberCompleted = (num) => {
     setStepNumber(num);
+  };
+
+  const getDocuments = (moveToState) => {
+    console.info(yourCurrentState, moveToState);
+    // prettier-ignore
+    if(yourCurrentState === "Florida" && moveToState === 'Alaska' || yourCurrentState ==="North Carolina" && moveToState === 'Alaska' || yourCurrentState ==="Alabama" && moveToState === 'Alaska' ) {
+      console.log('a')
+      navigate("/alaska");
+      
+    } else if(yourCurrentState === "Florida" && moveToState === 'California' || yourCurrentState ==="North Carolina" && moveToState === 'California' || yourCurrentState ==="Alabama" && moveToState === 'California') {
+      console.log('c')
+      navigate("/california");
+      
+    } else {
+
+    }
   };
 
   return (
@@ -114,14 +134,14 @@ export default function WizardPage() {
           {stepNumber === 3 && (
             <Step4
               stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
-              currentState={() => console.log("")}
+              currentState={(state) => setYourCurrentState(state)}
             />
           )}
 
           {stepNumber === 4 && (
             <Step5
               stepNumberCompleted={(num) => handleStepNumberCompleted(num)}
-              movingToState={() => console.log("")}
+              movingToState={(state) => getDocuments(state)}
             />
           )}
         </Box>

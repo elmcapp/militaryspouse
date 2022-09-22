@@ -4,6 +4,8 @@ import TopMenuBar from "./components/TopMenuBar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import WizardPage from "./pages/wizard";
+import { California } from "./pages/documentResults/rn/California";
+import { Alaska } from "./pages/documentResults/rn/Alaska";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route index element={<Home />} />
         </Route>
-        <Route path="start" element={<WizardPage />} />
+        <Route path="/start" element={<WizardPage />} />
+        <Route path="/california" element={<California />} />
+        <Route path="/alaska" element={<Alaska />} />
       </Routes>
     </div>
   );
