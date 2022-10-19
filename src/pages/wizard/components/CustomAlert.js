@@ -20,7 +20,7 @@ export const CustomAlert = (props) => {
         onClose={props.onClose}
         aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">Alert?</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">" "</DialogTitle>
         <DialogContent>
           <DialogContentText>{props.msg}</DialogContentText>
         </DialogContent>

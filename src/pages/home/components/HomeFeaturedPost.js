@@ -58,11 +58,12 @@ const HomeFeaturedPost = () => {
               color="inherit"
               gutterBottom
             >
-              Military Spouse Interstate License Recognition Options
+              Military Spouse Interstate Occupational License Transfer Options
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              Use the wizard to find requirements and documents to transfer your
-              field license to your current state.
+              Use the wizard to find the requirements and documents to
+              efficiently transfer your occupational license to the State you
+              are Permanently Changing Station (PCSing) to.
             </Typography>
             <Button
               variant="contained"

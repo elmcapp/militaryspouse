@@ -87,7 +87,7 @@ export default function WizardPage() {
               color="text.primary"
               gutterBottom
             >
-              Instructions Title
+              Military Spouses Currently Holding RN or LPN License
             </Typography>
             <Typography
               variant="h5"
@@ -95,9 +95,11 @@ export default function WizardPage() {
               color="text.secondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              If you currently hold an RN or LPN occupational license in a U.S.
+              jurisdiction, and need to transfer your license to a new State due
+              to a PCS move, please answer the following questions from the
+              drop-down menu to determine the most efficient way to transfer
+              your license to another U.S. jurisdiction
             </Typography>
           </Container>
         </Box>
