@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/militaryspouse/static/css/main.e6c13ad2.css",
-    "main.js": "/militaryspouse/static/js/main.0e736b71.js",
+    "main.js": "/militaryspouse/static/js/main.b72f7c2e.js",
     "static/js/787.84765077.chunk.js": "/militaryspouse/static/js/787.84765077.chunk.js",
     "index.html": "/militaryspouse/index.html",
     "main.e6c13ad2.css.map": "/militaryspouse/static/css/main.e6c13ad2.css.map",
-    "main.0e736b71.js.map": "/militaryspouse/static/js/main.0e736b71.js.map",
+    "main.b72f7c2e.js.map": "/militaryspouse/static/js/main.b72f7c2e.js.map",
     "787.84765077.chunk.js.map": "/militaryspouse/static/js/787.84765077.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.0e736b71.js"
+    "static/js/main.b72f7c2e.js"
   ]
 }
